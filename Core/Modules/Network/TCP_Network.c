@@ -5,6 +5,8 @@
  *  Author: Emre iris
  */
 
+#if 0
+
 #include "TCP_Network.h"
 #include "lwip/tcp.h"
 #include "lwip/netbuf.h"
@@ -132,3 +134,4 @@ void TCP_Server_Runtime_Task()
 
 }
 
+#endif

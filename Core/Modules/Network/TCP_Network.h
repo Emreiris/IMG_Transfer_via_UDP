@@ -5,6 +5,8 @@
  *  Author: Emre iris
  */
 
+#if 0
+
 #ifndef APPLLICATION_TCP_NETWORK_TCP_NETWORK_H_
 #define APPLLICATION_TCP_NETWORK_TCP_NETWORK_H_
 
@@ -16,3 +18,6 @@
 void TCP_Server_Runtime_Task();
 
 #endif /* APPLLICATION_TCP_NETWORK_TCP_NETWORK_H_ */
+
+
+#endif
