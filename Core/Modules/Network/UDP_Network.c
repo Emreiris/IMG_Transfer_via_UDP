@@ -5,6 +5,10 @@
  *      Author: emrei
  */
 
+/* TODO : Library is not completed, there will be so much to add.
+ * Command sequence will be added, state machine will be built.
+ * BMP file will be handled.*/
+
 #include "UDP_Network.h"
 #include <stdint.h>
 #include <lwip/udp.h>

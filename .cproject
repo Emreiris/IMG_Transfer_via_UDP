@@ -125,15 +125,15 @@
                                     									
                                     <listOptionValue builtIn="false" value="../Middlewares/Third_Party/LwIP/system/arch"/>
                                     									
-                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/IMG_Transfer_via_TCP/Core/lvgl}&quot;"/>
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/IMG_Transfer_via_UDP/Core/lvgl}&quot;"/>
                                     									
-                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/IMG_Transfer_via_TCP/Core/Modules/Screen/Displayer}&quot;"/>
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/IMG_Transfer_via_UDP/Core/Modules/Screen/Displayer}&quot;"/>
                                     									
-                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/IMG_Transfer_via_TCP/Core/Modules/Screen/Touch_Screen}&quot;"/>
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/IMG_Transfer_via_UDP/Core/Modules/Screen/Touch_Screen}&quot;"/>
                                     									
-                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/IMG_Transfer_via_TCP/Core/Modules/SDRAM}&quot;"/>
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/IMG_Transfer_via_UDP/Core/Modules/SDRAM}&quot;"/>
                                     									
-                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/IMG_Transfer_via_TCP/Core/Modules/Network}&quot;"/>
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/IMG_Transfer_via_UDP/Core/Modules/Network}&quot;"/>
                                     								
                                 </option>
                                 								

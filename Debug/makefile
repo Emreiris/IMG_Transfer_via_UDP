@@ -56,34 +56,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := IMG_Transfer_via_TCP
+BUILD_ARTIFACT_NAME := IMG_Transfer_via_UDP
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX := 
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME).$(BUILD_ARTIFACT_EXTENSION)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-IMG_Transfer_via_TCP.elf \
+IMG_Transfer_via_UDP.elf \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-IMG_Transfer_via_TCP.list \
+IMG_Transfer_via_UDP.list \
 
 OBJCOPY_BIN += \
-IMG_Transfer_via_TCP.bin \
+IMG_Transfer_via_UDP.bin \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: IMG_Transfer_via_TCP.elf secondary-outputs
+main-build: IMG_Transfer_via_UDP.elf secondary-outputs
 
 # Tool invocations
-IMG_Transfer_via_TCP.elf: $(OBJS) $(USER_OBJS) D:\Warm\ up\ Projects\Embedded\ Software\ Projects\ST\ Projects\STM32F7\IMG_Transfer_via_TCP\STM32F746NGHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "IMG_Transfer_via_TCP.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMG_Transfer_via_TCP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+IMG_Transfer_via_UDP.elf: $(OBJS) $(USER_OBJS) D:\Warm\ up\ Projects\Embedded\ Software\ Projects\ST\ Projects\STM32F7\IMG_Transfer_via_TCP\STM32F746NGHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "IMG_Transfer_via_UDP.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMG_Transfer_via_UDP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -92,13 +92,13 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-IMG_Transfer_via_TCP.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "IMG_Transfer_via_TCP.list"
+IMG_Transfer_via_UDP.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "IMG_Transfer_via_UDP.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-IMG_Transfer_via_TCP.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "IMG_Transfer_via_TCP.bin"
+IMG_Transfer_via_UDP.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "IMG_Transfer_via_UDP.bin"
 	@echo 'Finished building: $@'
 	@echo ' '
 
