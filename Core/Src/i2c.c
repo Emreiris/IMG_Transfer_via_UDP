@@ -30,6 +30,13 @@ I2C_HandleTypeDef hi2c3;
 void MX_I2C3_Init(void)
 {
 
+  /* USER CODE BEGIN I2C3_Init 0 */
+
+  /* USER CODE END I2C3_Init 0 */
+
+  /* USER CODE BEGIN I2C3_Init 1 */
+
+  /* USER CODE END I2C3_Init 1 */
   hi2c3.Instance = I2C3;
   hi2c3.Init.Timing = 0x0040EAFF;
   hi2c3.Init.OwnAddress1 = 224;
@@ -55,6 +62,9 @@ void MX_I2C3_Init(void)
   {
     Error_Handler();
   }
+  /* USER CODE BEGIN I2C3_Init 2 */
+
+  /* USER CODE END I2C3_Init 2 */
 
 }
 

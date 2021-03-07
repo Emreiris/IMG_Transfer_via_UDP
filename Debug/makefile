@@ -1,5 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (9-2020-q2-update)
 ################################################################################
 
 -include ../makefile.init
@@ -31,7 +32,6 @@ RM := rm -rf
 -include Core/Modules/Screen/Touch_Screen/subdir.mk
 -include Core/Modules/Screen/Displayer/subdir.mk
 -include Core/Modules/SDRAM/subdir.mk
--include Core/Modules/Network/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -48,6 +48,12 @@ endif
 endif
 
 -include ../makefile.defs
+
+OPTIONAL_TOOL_DEPS := \
+$(wildcard ../makefile.defs) \
+$(wildcard ../makefile.init) \
+$(wildcard ../makefile.targets) \
+
 
 BUILD_ARTIFACT_NAME := IMG_Transfer_via_TCP
 BUILD_ARTIFACT_EXTENSION := elf
@@ -75,22 +81,22 @@ all: main-build
 main-build: IMG_Transfer_via_TCP.elf secondary-outputs
 
 # Tool invocations
-IMG_Transfer_via_TCP.elf: $(OBJS) $(USER_OBJS) D:\Warm\ up\ Projects\Embedded\ Software\ Projects\ST\ Projects\STM32F7\IMG_Transfer_via_TCP\STM32F746NGHX_FLASH.ld
+IMG_Transfer_via_TCP.elf: $(OBJS) $(USER_OBJS) D:\Warm\ up\ Projects\Embedded\ Software\ Projects\ST\ Projects\STM32F7\IMG_Transfer_via_TCP\STM32F746NGHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-gcc -o "IMG_Transfer_via_TCP.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMG_Transfer_via_TCP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-default.size.stdout: $(EXECUTABLES)
+default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-size  $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-IMG_Transfer_via_TCP.list: $(EXECUTABLES)
+IMG_Transfer_via_TCP.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "IMG_Transfer_via_TCP.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-IMG_Transfer_via_TCP.bin: $(EXECUTABLES)
+IMG_Transfer_via_TCP.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "IMG_Transfer_via_TCP.bin"
 	@echo 'Finished building: $@'
 	@echo ' '

@@ -91,7 +91,7 @@ static void Displayer_Layer_Init(void)
 	lcd_handle.LayerCfg[0].Alpha0 = 0;
 	lcd_handle.LayerCfg[0].BlendingFactor1 = LTDC_BLENDING_FACTOR1_PAxCA;
 	lcd_handle.LayerCfg[0].BlendingFactor2 = LTDC_BLENDING_FACTOR2_PAxCA;
-	lcd_handle.LayerCfg[0].FBStartAdress = (uint32_t)0xC0000000;
+	lcd_handle.LayerCfg[0].FBStartAdress = FB_START_ADDRRESS;
 	lcd_handle.LayerCfg[0].ImageWidth = DISPLAYER_WIDTH;
 	lcd_handle.LayerCfg[0].ImageHeight = DISPLAYER_HEIGHT;
 	lcd_handle.LayerCfg[0].Backcolor.Blue = 0;

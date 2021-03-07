@@ -6,7 +6,7 @@
  */
 
 #include "lvgl.h"
-
+#include <stdlib.h>
 #include "displayer_gui_driver.h"
 #include "displayer.h"
 #include "sdram.h"
@@ -22,8 +22,10 @@ void Displayer_GUI_Init(void)
 	  lv_init();
 
 	  static lv_disp_buf_t disp_buf;
-	  static lv_color_t buf[LV_HOR_RES_MAX * 50];
-	  lv_disp_buf_init(&disp_buf, buf, NULL, LV_HOR_RES_MAX * 50);
+
+	  lv_color_t *buf = malloc(48000*sizeof(lv_color_t)); /* It was a must.*/
+
+	  lv_disp_buf_init(&disp_buf, buf, NULL, LV_HOR_RES_MAX * 100);
 
 	  lv_disp_drv_t disp_drv;
 	  lv_disp_drv_init(&disp_drv);

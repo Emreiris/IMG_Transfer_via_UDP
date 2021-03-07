@@ -1,5 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (9-2020-q2-update)
 ################################################################################
 
 ELF_SRCS := 
@@ -19,7 +20,6 @@ OBJCOPY_BIN :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-Core/Modules/Network \
 Core/Modules/SDRAM \
 Core/Modules/Screen/Displayer \
 Core/Modules/Screen/Touch_Screen \

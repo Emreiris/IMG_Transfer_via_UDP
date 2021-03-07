@@ -25,8 +25,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <displayer_gui_driver.h>
+#include "displayer.h"
 #include <touch_screen_gui_driver.h>
-#include <TCP_Network.h>
+#include <touch_screen.h>
+#include <lvgl.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,14 +99,21 @@ int main(void)
   MX_LWIP_Init();
   /* USER CODE BEGIN 2 */
 
+  Displayer_GUI_Init();
+
+  Touch_Screen_Init();
+
+  lv_obj_t *btn = lv_btn_create(lv_scr_act(), NULL);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  lv_task_handler();
 	  MX_LWIP_Process();
-	  TCP_Server_Runtime_Task();
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -172,9 +181,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  /** Enables the Clock Security System
-  */
-  HAL_RCC_EnableCSS();
 }
 
 /* USER CODE BEGIN 4 */
@@ -196,6 +202,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE END Callback 0 */
   if (htim->Instance == TIM1) {
     HAL_IncTick();
+    lv_tick_inc(1);
   }
   /* USER CODE BEGIN Callback 1 */
 
