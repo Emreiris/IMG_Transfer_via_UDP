@@ -31,6 +31,8 @@
 #include <lvgl.h>
 #include <UDP_Network.h>
 #include <lwip/udp.h>
+
+#include <communication_controller.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -105,11 +107,9 @@ int main(void)
 
   Touch_Screen_Init();
 
-  lv_obj_t *btn = lv_btn_create(lv_scr_act(), NULL);
-
-
   UDP_Server_Init();
 
+  //Communication_Control_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -118,7 +118,6 @@ int main(void)
   {
 	  lv_task_handler();
 	  MX_LWIP_Process();
-
 	  UDP_Server_Runtime_Task();
 
     /* USER CODE END WHILE */

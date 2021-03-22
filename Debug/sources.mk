@@ -20,6 +20,7 @@ OBJCOPY_BIN :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Core/App \
 Core/Modules/Network \
 Core/Modules/SDRAM \
 Core/Modules/Screen/Displayer \

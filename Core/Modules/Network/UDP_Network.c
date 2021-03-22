@@ -14,11 +14,12 @@
 #include <lwip/udp.h>
 #include <string.h>
 #include <stdlib.h>
+#include <lvgl.h>
 
 #define BUF_SIZE (256)
 
 
-char udp_buffer[BUF_SIZE];
+extern lv_color_int_t *img_buffer;
 
 uint16_t length;
 
@@ -33,7 +34,7 @@ void UDP_Server_Init()
 
 	udp_controller = udp_new();
 
-	udp_bind(udp_controller, IP_ADDR_ANY, 1235);
+	udp_bind(udp_controller, IP_ADDR_ANY, 1234);
 
 }
 
@@ -49,6 +50,6 @@ static void UDP_Receive(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip
 
 	length = p->len;
 
-	memcpy(udp_buffer, p->payload, p->len);
+	memcpy(img_buffer, p->payload, p->len);
 
 }

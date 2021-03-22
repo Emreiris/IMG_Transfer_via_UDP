@@ -134,6 +134,8 @@
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/IMG_Transfer_via_UDP/Core/Modules/SDRAM}&quot;"/>
                                     									
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/IMG_Transfer_via_UDP/Core/Modules/Network}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/IMG_Transfer_via_UDP/Core/App}&quot;"/>
                                     								
                                 </option>
                                 								
