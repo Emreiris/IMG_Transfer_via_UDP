@@ -16,15 +16,10 @@
 #include <stdlib.h>
 #include <lvgl.h>
 
-#define BUF_SIZE (256)
 
-
-extern lv_color_int_t *img_buffer;
-
-uint16_t length;
+uint8_t udp_buffer[BUF_SIZE];
 
 static struct udp_pcb *udp_controller;
-struct pbuf *p;
 
 static void UDP_Receive(void *arg, struct udp_pcb *pcb, struct pbuf *p,
 	                    const ip_addr_t *addr, u16_t port);
@@ -33,7 +28,6 @@ void UDP_Server_Init()
 {
 
 	udp_controller = udp_new();
-
 	udp_bind(udp_controller, IP_ADDR_ANY, 1234);
 
 }
@@ -48,8 +42,15 @@ void UDP_Server_Runtime_Task()
 static void UDP_Receive(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
 {
 
-	length = p->len;
+	if(p->len < BUF_SIZE)
+	{
+		memcpy(udp_buffer, p->payload, p->len);
+	}
 
-	memcpy(img_buffer, p->payload, p->len);
+	if( p->len > 0)
+	{
+		pbuf_free(p);
+	}
 
 }
+

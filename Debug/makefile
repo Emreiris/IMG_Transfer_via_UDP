@@ -83,8 +83,8 @@ all: main-build
 main-build: IMG_Transfer_via_UDP.elf secondary-outputs
 
 # Tool invocations
-IMG_Transfer_via_UDP.elf: $(OBJS) $(USER_OBJS) D:\Warm\ up\ Projects\Embedded\ Software\ Projects\ST\ Projects\STM32F7\IMG_Transfer_via_TCP\STM32F746NGHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "IMG_Transfer_via_UDP.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMG_Transfer_via_UDP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+IMG_Transfer_via_UDP.elf: $(OBJS) $(USER_OBJS) D:\Warm\ up\ Projects\Embedded\ Software\ Projects\ST\ Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\STM32F746NGHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "IMG_Transfer_via_UDP.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMG_Transfer_via_UDP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
