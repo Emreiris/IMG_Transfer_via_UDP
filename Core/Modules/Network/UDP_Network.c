@@ -16,8 +16,18 @@
 #include <stdlib.h>
 #include <lvgl.h>
 
+#include "displayer.h"
 
-uint8_t udp_buffer[BUF_SIZE];
+volatile uint16_t length;
+
+#define BUF_X ((uint16_t)5)
+#define BUF_Y ((uint16_t)5)
+
+#define BUF_SIZE (BUF_X*BUF_Y)
+
+volatile uint32_t udp_buffer[BUF_SIZE];
+
+struct pbuf *p_buffer;
 
 static struct udp_pcb *udp_controller;
 
@@ -42,15 +52,16 @@ void UDP_Server_Runtime_Task()
 static void UDP_Receive(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
 {
 
+	p_buffer = p;
+	length = p->tot_len;
+
+
 	if(p->len < BUF_SIZE)
 	{
-		memcpy(udp_buffer, p->payload, p->len);
+		memcpy(udp_buffer, (uint32_t *)p->payload, p->len);
 	}
 
-	if( p->len > 0)
-	{
-		pbuf_free(p);
-	}
+	pbuf_free(p);
 
 }
 

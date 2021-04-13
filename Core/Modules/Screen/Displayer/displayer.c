@@ -91,23 +91,72 @@ static void Displayer_Layer_Init(void)
 	lcd_handle.LayerCfg[0].Alpha0 = 0;
 	lcd_handle.LayerCfg[0].BlendingFactor1 = LTDC_BLENDING_FACTOR1_PAxCA;
 	lcd_handle.LayerCfg[0].BlendingFactor2 = LTDC_BLENDING_FACTOR2_PAxCA;
-	lcd_handle.LayerCfg[0].FBStartAdress = FB_START_ADDRRESS;
+
 	lcd_handle.LayerCfg[0].ImageWidth = DISPLAYER_WIDTH;
 	lcd_handle.LayerCfg[0].ImageHeight = DISPLAYER_HEIGHT;
 	lcd_handle.LayerCfg[0].Backcolor.Blue = 0;
 	lcd_handle.LayerCfg[0].Backcolor.Green = 0;
 	lcd_handle.LayerCfg[0].Backcolor.Red = 0;
+
+	HAL_LTDC_SetAddress(&lcd_handle, FB_START_ADDRRESS, 0);
     HAL_LTDC_ConfigLayer(&lcd_handle, &lcd_handle.LayerCfg[0], 1);
-	HAL_LTDC_EnableDither(&lcd_handle);
+
 }
 
 /*
- * NOTE : This function will wait for SDRAM to start.
+ * param1  : x position of pixel.
+ * param2  : y position of pixel.
+ * param3  : pixel color in ARGB8888 format(32 bit)
+ * retval  : none.
+ * brief   : This function draws a pixel to spesific position.
+ * XXX: This function defined non-statically, It may be used with lvgl in the future.
  */
 
-void Display_Draw_Pixel (int16_t Xpos, int16_t Ypos, uint32_t color)
+void Display_Draw_Pixel (uint16_t pos_x, uint16_t pos_y, uint32_t color)
 {
-	*(__IO uint32_t *)(lcd_handle.LayerCfg[0].FBStartAdress+( 4 * (Ypos * lcd_handle.LayerCfg [0] .ImageWidth + Xpos))) = color;
+	*(volatile uint32_t *)(lcd_handle.LayerCfg[0].FBStartAdress+(4*(pos_y*lcd_handle.LayerCfg[0].ImageWidth+pos_x))) = color;
+}
+
+
+/* param   : none.
+ * retval  : none.
+ * brief   : This function fills the screen with black so that initial RAM buffer does not ruin the screen.
+ */
+
+void Display_Fill_Black(void)
+{
+
+	 for(uint32_t i = 0; i < DISPLAYER_WIDTH*DISPLAYER_HEIGHT; i++)
+	 {
+		 *(volatile uint32_t *)(lcd_handle.LayerCfg[0].FBStartAdress+(i*4)) = 0xFF000000; /* Black in ARGB8888*/
+	 }
+}
+
+
+/*
+ * param1 : x position of image.
+ * param2 : y position of image.
+ * param3 : width of image.
+ * param4 : heigth of image.
+ * param5 : image buffer.
+ * brief  : This function draws an image to screen with spesified position.
+ */
+
+void Display_Draw_Image(uint16_t pos_x, uint16_t pos_y, uint16_t width, uint16_t height,volatile uint32_t *image)
+{
+	if(image == NULL)
+	{
+		return;
+	}
+
+	for(uint16_t i = pos_y; i < pos_y+height; i++)
+	{
+		for(uint16_t j = pos_x; j < pos_x+width; j++)
+		{
+			Display_Draw_Pixel(j, i, *image++);
+		}
+	}
+
 }
 
 

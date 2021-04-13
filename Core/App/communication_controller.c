@@ -6,34 +6,25 @@
  */
 
 #include <stdint.h>
+#include <string.h>
+#include <stdlib.h>
+#include "displayer.h"
 
-#include <lvgl.h>
+#define BUF_SIZE (4*4p)
 
-#define IMG_X (176)
-#define IMG_Y (176)
-
-#define IMG_ADDRESS ((uint32_t)0xC0020000)
-
-lv_obj_t *canvas;
-
-lv_color_int_t *img_buffer;
+extern volatile uint32_t udp_buffer[BUF_SIZE];
 
 void Communication_Control_Init(void)
 {
-	  img_buffer = (uint32_t *)IMG_ADDRESS;
-
-	  for(uint32_t i = 0; i < IMG_X*IMG_Y; ++i)
-	  {
-		  img_buffer[i] = 0;
-	  }
-
-	  canvas = lv_canvas_create(lv_scr_act(), NULL);
-	  lv_canvas_set_buffer(canvas, img_buffer, IMG_X, IMG_Y, LV_IMG_CF_TRUE_COLOR);
-	  lv_obj_align(canvas, NULL, LV_ALIGN_CENTER, 0, 0);
+	Display_Fill_Black();
 }
 
 void Communication_Control_Runtime(void)
 {
 
+
+	Display_Draw_Image(100, 100, 4, 4, udp_buffer);
+
+		//memset(udp_buffer, 0x00, sizeof(uint32_t)*BUF_SIZE);
 }
 

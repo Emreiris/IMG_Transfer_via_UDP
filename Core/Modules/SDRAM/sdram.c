@@ -43,14 +43,13 @@ void SDRAM_Init(void)
   SdramTiming.RCDDelay = 2;
 
   HAL_SDRAM_Init(&hsdram1, &SdramTiming);
-
   SDRAM_Initialization_Sequence(&hsdram1, &command);
 
 }
 
 static void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *sdram_handle, FMC_SDRAM_CommandTypeDef *command)
 {
-  __IO uint32_t tmpmrd;
+  volatile uint32_t temp_val;
 
   command->CommandMode = FMC_SDRAM_CMD_CLK_ENABLE;
   command->CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
@@ -75,7 +74,7 @@ static void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *sdram_handle, FMC
 
   HAL_SDRAM_SendCommand(sdram_handle, command, SDRAM_TIMEOUT);
 
-  tmpmrd = (uint32_t)SDRAM_MODEREG_BURST_LENGTH_1          |
+  temp_val = (uint32_t)SDRAM_MODEREG_BURST_LENGTH_1          |
                      SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL   |
                      SDRAM_MODEREG_CAS_LATENCY_2           |
                      SDRAM_MODEREG_OPERATING_MODE_STANDARD |
@@ -84,7 +83,7 @@ static void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *sdram_handle, FMC
   command->CommandMode = FMC_SDRAM_CMD_LOAD_MODE;
   command->CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
   command->AutoRefreshNumber = 1;
-  command->ModeRegisterDefinition = tmpmrd;
+  command->ModeRegisterDefinition = temp_val;
 
   HAL_SDRAM_SendCommand(sdram_handle, command, SDRAM_TIMEOUT);
   HAL_SDRAM_SetAutoRefreshNumber(&hsdram1, SDRAM_REFRESH_TIME);
