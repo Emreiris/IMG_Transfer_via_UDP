@@ -127,7 +127,7 @@ int main(void)
 	  UDP_Transmit((char *)buffer, strlen(buffer));
 	  //UDP_Server_Runtime_Task();
 
-	  HAL_Delay(100);
+
 
 
 	  //Communication_Control_Runtime();
