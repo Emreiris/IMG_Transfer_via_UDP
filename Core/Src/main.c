@@ -64,7 +64,7 @@ static void MPU_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+const char buffer[] = "Hello world\n";
 /* USER CODE END 0 */
 
 /**
@@ -74,6 +74,8 @@ static void MPU_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+
+
 
   /* USER CODE END 1 */
 
@@ -113,7 +115,7 @@ int main(void)
 
   UDP_Server_Init();
 
-  Communication_Control_Init();
+  //Communication_Control_Init();
 
   /* USER CODE END 2 */
 
@@ -121,10 +123,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
 	  MX_LWIP_Process();
-	  UDP_Server_Runtime_Task();
-	  Communication_Control_Runtime();
+	  UDP_Transmit((char *)buffer, strlen(buffer));
+	  //UDP_Server_Runtime_Task();
+
+	  HAL_Delay(100);
+
+
+	  //Communication_Control_Runtime();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -247,6 +253,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE END Callback 0 */
   if (htim->Instance == TIM1) {
     HAL_IncTick();
+
   }
   /* USER CODE BEGIN Callback 1 */
 

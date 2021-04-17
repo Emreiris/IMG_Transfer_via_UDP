@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include "displayer.h"
 
-#define BUF_SIZE (4*4p)
+#define BUF_SIZE (8*8)
 
 extern volatile uint32_t udp_buffer[BUF_SIZE];
 
@@ -23,7 +23,7 @@ void Communication_Control_Runtime(void)
 {
 
 
-	Display_Draw_Image(100, 100, 4, 4, udp_buffer);
+	Display_Draw_Image(100, 100, 8, 8, udp_buffer);
 
 		//memset(udp_buffer, 0x00, sizeof(uint32_t)*BUF_SIZE);
 }
