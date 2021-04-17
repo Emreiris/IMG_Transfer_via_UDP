@@ -125,7 +125,7 @@ int main(void)
   {
 	  MX_LWIP_Process();
 	  UDP_Transmit((char *)buffer, strlen(buffer));
-	  //UDP_Server_Runtime_Task();
+	  UDP_Server_Runtime_Task();
 
 
 
