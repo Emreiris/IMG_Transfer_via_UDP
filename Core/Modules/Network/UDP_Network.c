@@ -17,11 +17,8 @@
 #include <lvgl.h>
 #include "displayer.h"
 
-#define BUF_X (16)
-#define BUF_Y (8)
-
-#define BUF_SIZE (BUF_X*BUF_Y+1)
 uint32_t udp_buffer[BUF_SIZE];
+
 static struct udp_pcb *udp_controller;
 
 static void UDP_Receive(void *arg, struct udp_pcb *pcb, struct pbuf *p,
