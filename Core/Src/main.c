@@ -18,6 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <image_handler.h>
 #include "main.h"
 #include "lwip.h"
 #include "gpio.h"
@@ -32,7 +33,6 @@
 #include <UDP_Network.h>
 #include <lwip/udp.h>
 
-#include <communication_controller.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -113,9 +113,7 @@ int main(void)
   SDRAM_Init();
   Displayer_Init();
 
-  UDP_Server_Init();
-
-  //Communication_Control_Init();
+  Image_Control_Init();
 
   /* USER CODE END 2 */
 
@@ -124,13 +122,8 @@ int main(void)
   while (1)
   {
 	  MX_LWIP_Process();
-	  UDP_Transmit((char *)buffer, strlen(buffer));
-	  UDP_Server_Runtime_Task();
+	  Image_Control_Runtime();
 
-
-
-
-	  //Communication_Control_Runtime();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

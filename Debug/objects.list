@@ -1,4 +1,4 @@
-"Core/App/communication_controller.o"
+"Core/App/image_handler.o"
 "Core/Modules/Network/TCP_Network.o"
 "Core/Modules/Network/UDP_Network.o"
 "Core/Modules/SDRAM/sdram.o"
