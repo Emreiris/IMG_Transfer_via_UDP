@@ -5,22 +5,37 @@
  *      Author: emrei
  */
 
-
-
-#include "i2c.h"
+/*
+ * standart libs
+ */
 
 #include <stdint.h>
 #include <stdbool.h>
 
+/*
+ * costum libs
+ */
+
+#include "i2c.h"
 #include "touch_screen.h"
 #include "touch_screen_reglist.h"
 
+/*
+ * definitions
+ */
+
 #define I2C_Handle (&hi2c3)
 
-_Bool Touch_Screen_Ispressed()
+/*
+ * @param  = none.
+ * @retval = true if pressed, false if not.
+ * @brief  = Checks if pressed to touch screen.
+ */
+
+bool Touch_Screen_Ispressed()
 {
 
-	uint8_t touch_num;
+	static uint8_t touch_num;
 
 	HAL_I2C_Mem_Read(I2C_Handle, DEV_ADDRESS_READ , DEV_TOUCH_NUM, I2C_MEMADD_SIZE_8BIT, &touch_num, 1, 10);
 
@@ -35,10 +50,17 @@ _Bool Touch_Screen_Ispressed()
 
 }
 
+/*
+ * @param1 = pointer to x coordinate of pressed point.
+ * @param2 = pointer to y coordinate pf pressed point.
+ * @retval = none.
+ * @brief  = Gives pressed point.
+ */
+
 void Touch_Screen_Read(uint16_t *touch_x, uint16_t *touch_y)
 {
-	 uint8_t ts_x[2] ;
-	 uint8_t ts_y[2] ;
+	 uint8_t ts_x[2];
+	 uint8_t ts_y[2];
 
 	HAL_I2C_Mem_Read(I2C_Handle, DEV_ADDRESS_READ , DEV_TOUCH_X_H, I2C_MEMADD_SIZE_8BIT, &ts_x[0], 1, 10);
 	HAL_I2C_Mem_Read(I2C_Handle, DEV_ADDRESS_READ , DEV_TOUCH_X_L, I2C_MEMADD_SIZE_8BIT, &ts_x[1], 1, 10);
@@ -50,5 +72,3 @@ void Touch_Screen_Read(uint16_t *touch_x, uint16_t *touch_y)
 	*touch_y = ts_y[1] + ((ts_y[0] & 0x0F) << 8);
 
 }
-
-

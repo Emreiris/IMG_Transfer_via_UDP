@@ -5,6 +5,7 @@
  *  Author: Emre iris
  */
 
+/*XXX: Abandoned in the progress of the project. It still works. */
 #if 0
 
 #include "TCP_Network.h"

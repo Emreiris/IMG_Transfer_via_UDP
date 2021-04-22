@@ -14,7 +14,7 @@
 
 /*
  * lCD Back Light On
- * @NOTE : Back light brightness can be changed via connecting to PWM timer pin
+ * NOTE : Back light brightness can be changed via connecting to PWM timer pin
  */
 
 #define LCD_BACKLIGHT_STATE(x) \
@@ -41,7 +41,6 @@ static void Displayer_Layer_Init(void);
 
 void Displayer_Init()
 {
-
 	LCD_BACKLIGHT_STATE(1);
 	LCD_DISP_STATE(1);
 
@@ -50,25 +49,20 @@ void Displayer_Init()
 	lcd_handle.Init.VSPolarity = LTDC_VSPOLARITY_AL;
 	lcd_handle.Init.DEPolarity = LTDC_DEPOLARITY_AL;
 	lcd_handle.Init.PCPolarity = LTDC_PCPOLARITY_IPC;
-	lcd_handle.Init.HorizontalSync = (DISPLAYER_HSYNC - 1);
-	lcd_handle.Init.VerticalSync = (DISPLAYER_VSYNC - 1);
-	lcd_handle.Init.AccumulatedHBP = (DISPLAYER_HSYNC + DISPLAYER_HBP - 1);
-	lcd_handle.Init.AccumulatedVBP = (DISPLAYER_VSYNC + DISPLAYER_VBP - 1);
-	lcd_handle.Init.AccumulatedActiveH = (DISPLAYER_HEIGHT + DISPLAYER_VSYNC
-			+ DISPLAYER_VBP - 1);
-	lcd_handle.Init.AccumulatedActiveW = (DISPLAYER_WIDTH + DISPLAYER_HSYNC
-			+ DISPLAYER_HBP - 1);
-	lcd_handle.Init.TotalHeigh = (DISPLAYER_HEIGHT + DISPLAYER_VSYNC
-			+ DISPLAYER_VBP + DISPLAYER_VFP - 1);
-	lcd_handle.Init.TotalWidth = (DISPLAYER_WIDTH + DISPLAYER_HSYNC
-			+ DISPLAYER_HBP + DISPLAYER_HFP - 1);
+	lcd_handle.Init.HorizontalSync     = DISPLAYER_HSYNC - 1;
+	lcd_handle.Init.VerticalSync       = DISPLAYER_VSYNC - 1;
+	lcd_handle.Init.AccumulatedHBP     = DISPLAYER_HSYNC  + DISPLAYER_HBP - 1;
+	lcd_handle.Init.AccumulatedVBP     = DISPLAYER_VSYNC  + DISPLAYER_VBP - 1;
+	lcd_handle.Init.AccumulatedActiveH = DISPLAYER_HEIGHT + DISPLAYER_VSYNC+ DISPLAYER_VBP - 1;
+	lcd_handle.Init.AccumulatedActiveW = DISPLAYER_WIDTH + DISPLAYER_HSYNC+ DISPLAYER_HBP - 1;
+	lcd_handle.Init.TotalHeigh = DISPLAYER_HEIGHT + DISPLAYER_VSYNC + DISPLAYER_VBP + DISPLAYER_VFP - 1;
+	lcd_handle.Init.TotalWidth = DISPLAYER_WIDTH + DISPLAYER_HSYNC + DISPLAYER_HBP + DISPLAYER_HFP - 1;
 	lcd_handle.Init.Backcolor.Blue = 0;
 	lcd_handle.Init.Backcolor.Green = 0;
 	lcd_handle.Init.Backcolor.Red = 0;
 
 	HAL_LTDC_Init(&lcd_handle);
 	Displayer_Layer_Init();
-
 }
 
 
@@ -81,7 +75,6 @@ void Displayer_Init()
 
 static void Displayer_Layer_Init(void)
 {
-
 	lcd_handle.LayerCfg[0].WindowX0 = 0;
 	lcd_handle.LayerCfg[0].WindowX1 = DISPLAYER_WIDTH;
 	lcd_handle.LayerCfg[0].WindowY0 = 0;
@@ -100,7 +93,6 @@ static void Displayer_Layer_Init(void)
 
 	HAL_LTDC_SetAddress(&lcd_handle, FB_START_ADDRRESS, 0);
     HAL_LTDC_ConfigLayer(&lcd_handle, &lcd_handle.LayerCfg[0], 1);
-
 }
 
 /*
@@ -112,7 +104,7 @@ static void Displayer_Layer_Init(void)
  * XXX: This function defined non-statically, It may be used with lvgl in the future.
  */
 
-void Display_Draw_Pixel (uint16_t pos_x, uint16_t pos_y, uint32_t color)
+void Display_Draw_Pixel(uint16_t pos_x, uint16_t pos_y, uint32_t color)
 {
 	*(volatile uint32_t *)(lcd_handle.LayerCfg[0].FBStartAdress+(4*(pos_y*lcd_handle.LayerCfg[0].ImageWidth+pos_x))) = color;
 }
@@ -125,8 +117,7 @@ void Display_Draw_Pixel (uint16_t pos_x, uint16_t pos_y, uint32_t color)
 
 void Display_Fill_Black(void)
 {
-
-	 for(uint32_t i = 0; i < DISPLAYER_WIDTH*DISPLAYER_HEIGHT; i++)
+	 for( uint32_t i = 0; i < DISPLAYER_WIDTH*DISPLAYER_HEIGHT; i++ )
 	 {
 		 *(volatile uint32_t *)(lcd_handle.LayerCfg[0].FBStartAdress+(i*4)) = 0xFF000000; /* Black in ARGB8888*/
 	 }
@@ -144,19 +135,18 @@ void Display_Fill_Black(void)
 
 void Display_Draw_Image(uint16_t pos_x, uint16_t pos_y, uint16_t width, uint16_t height,volatile uint32_t *image)
 {
-	if(image == NULL)
+	if( image == NULL )
 	{
 		return;
 	}
 
-	for(uint16_t i = pos_y; i < pos_y+height; i++)
+	for( uint16_t i = pos_y; i < pos_y+height; i++ )
 	{
-		for(uint16_t j = pos_x; j < pos_x+width; j++)
+		for( uint16_t j = pos_x; j < pos_x+width; j++ )
 		{
 			Display_Draw_Pixel(j, i, *image++);
 		}
 	}
-
 }
 
 

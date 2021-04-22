@@ -1,8 +1,7 @@
 /*
  * displayer_gui_driver.c
  *
- *  Created on: 1 Şub 2021
- *      Author: emrei
+ * Author: Emre iris
  */
 
 #include "lvgl.h"
@@ -13,6 +12,12 @@
 
 
 static void display_interface(lv_disp_drv_t * disp, const lv_area_t * area, lv_color_t * color_p);
+
+/*
+ * @param  = none.
+ * @retval = none.
+ * @brief  = Displayer gui driver initialization.
+ */
 
 void Displayer_GUI_Init(void)
 {
@@ -34,11 +39,21 @@ void Displayer_GUI_Init(void)
 	  lv_disp_drv_register(&disp_drv);
 }
 
+/*
+ * @param1 = pointer to displayer driver type.
+ * @param2 = pointer to displayer area type.
+ * @param3 = pointer to displayer color type.
+ * @retval = none.
+ * @brief  = Displayer gui driver helper function that touches to targeted machine( who is my little boy ).
+ */
+
 static void display_interface(lv_disp_drv_t * disp, const lv_area_t * area, lv_color_t * color_p)
 {
     int32_t x, y;
-    for(y = area->y1; y <= area->y2; y++) {
-        for(x = area->x1; x <= area->x2; x++) {
+    for(y = area->y1; y <= area->y2; y++)
+    {
+        for(x = area->x1; x <= area->x2; x++)
+        {
         	Display_Draw_Pixel(x, y, (uint32_t)color_p->full);
             color_p++;
         }

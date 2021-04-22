@@ -5,15 +5,28 @@
  *      Author: emrei
  */
 
+/*
+ * standart libs
+ */
+
+#include <stdbool.h>
+
+/*
+ * costum libs
+ */
 
 #include "touch_screen_gui_driver.h"
-
 #include "i2c.h"
 #include "lvgl.h"
-#include <stdbool.h>
 #include "touch_screen.h"
 
-static bool my_touchpad_read(struct _lv_indev_drv_t * indev, lv_indev_data_t * data);
+static bool Touch_Screen_Interface(struct _lv_indev_drv_t * indev, lv_indev_data_t * data);
+
+/*
+ * @param  = none.
+ * @retval = none.
+ * @brief  = touch screen gui driver initialization.
+ */
 
 void Touch_Screen_Init()
 {
@@ -22,11 +35,18 @@ void Touch_Screen_Init()
 	lv_indev_drv_t indev_drv;
 	lv_indev_drv_init(&indev_drv);
 	indev_drv.type = LV_INDEV_TYPE_POINTER;
-	indev_drv.read_cb = my_touchpad_read;
+	indev_drv.read_cb = Touch_Screen_Interface;
 	lv_indev_drv_register(&indev_drv);
 }
 
-static bool my_touchpad_read(struct _lv_indev_drv_t * indev, lv_indev_data_t * data)
+/*
+ * @param1 = pointer to indev_drv_t type.
+ * @param2 = pointer to displayer area type.
+ * @retval = always false.
+ * @brief  = touch screen gui driver helper function that touches to targeted machine.
+ */
+
+static bool Touch_Screen_Interface(struct _lv_indev_drv_t * indev, lv_indev_data_t * data)
 {
 	uint16_t ts_x;
 	uint16_t ts_y;

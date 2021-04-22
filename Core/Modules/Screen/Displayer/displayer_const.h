@@ -1,22 +1,22 @@
 /*
  * displayer_const.h
  *
- *  Created on: Jan 30, 2021
- *      Author: emrei
+ *  Author: Emre iris
  */
 
 #ifndef MODULES_SCREEN_DISPLAYER_DISPLAYER_CONST_H_
 #define MODULES_SCREEN_DISPLAYER_DISPLAYER_CONST_H_
 
-/**
-  * @brief  Displayer Size
-  */
+/*
+ * brief  Displayer Size
+ */
+
 #define  DISPLAYER_WIDTH    ((uint16_t)480)          /* LCD PIXEL WIDTH            */
 #define  DISPLAYER_HEIGHT   ((uint16_t)272)          /* LCD PIXEL HEIGHT           */
 
-/**
-  * @brief  Displayer Timing
-  */
+/*
+ * brief  Displayer Timing
+ */
 
 #define  DISPLAYER_HSYNC            ((uint16_t)41)   /* Horizontal synchronization */
 #define  DISPLAYER_HBP              ((uint16_t)13)   /* Horizontal back porch      */

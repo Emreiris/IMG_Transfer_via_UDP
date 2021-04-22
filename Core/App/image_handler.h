@@ -1,14 +1,10 @@
 /*
  * communication_controller.h
- *
- *  Created on: 12 Mar 2021
- *      Author: emrei
+ *  Author: Emre IRIS
  */
 
 #ifndef APP_IMAGE_HANDLER_H_
 #define APP_IMAGE_HANDLER_H_
-
-
 
 void Image_Control_Init(void);
 

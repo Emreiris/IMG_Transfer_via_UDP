@@ -1,8 +1,7 @@
 /*
  * UDP_Network.h
  *
- *  Created on: Mar 7, 2021
- *      Author: emrei
+ * Author: Emre iris
  */
 
 #ifndef MODULES_NETWORK_UDP_NETWORK_H_
