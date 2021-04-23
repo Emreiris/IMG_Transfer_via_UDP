@@ -11,7 +11,7 @@
 #include "stm32f7xx.h"
 #include "displayer.h"
 #include "displayer_const.h"
-
+#include "dma2d.h"
 /*
  * lCD Back Light On
  * NOTE : Back light brightness can be changed via connecting to PWM timer pin
@@ -147,6 +147,28 @@ void Display_Draw_Image(uint16_t pos_x, uint16_t pos_y, uint16_t width, uint16_t
 			Display_Draw_Pixel(j, i, *image++);
 		}
 	}
+}
+
+
+void Display_Draw_Image_DMA2D(uint16_t pos_x, uint16_t pos_y, uint16_t width, uint16_t height,volatile uint32_t *image)
+{
+	static DMA2D_HandleTypeDef dma_handle;
+
+	dma_handle.Instance       = DMA2D;
+
+	dma_handle.Init.ColorMode    = DMA2D_OUTPUT_ARGB8888;
+	dma_handle.Init.Mode         = DMA2D_M2M;
+	dma_handle.Init.OutputOffset = DISPLAYER_WIDTH-width;
+
+	dma_handle.LayerCfg[0].AlphaMode = DMA2D_NO_MODIF_ALPHA;
+	dma_handle.LayerCfg[0].InputColorMode = DMA2D_INPUT_ARGB8888;
+	dma_handle.LayerCfg[0].InputOffset = 0;
+
+	HAL_DMA2D_Init(&dma_handle);
+	HAL_DMA2D_ConfigLayer(&dma_handle, 0);
+	HAL_DMA2D_Start(&dma_handle,(uint32_t)image, FB_START_ADDRRESS+(pos_x+pos_y*DISPLAYER_WIDTH)*4, width, height);
+	HAL_DMA2D_PollForTransfer(&dma_handle, 10);
+
 }
 
 

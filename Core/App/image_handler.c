@@ -55,7 +55,11 @@ void Image_Control_Runtime(void)
 
 	frame_step = Image_Step(seq_num);
 
+
 	Display_Draw_Image(BUF_X*frame_step.x_step, BUF_Y*frame_step.y_step, BUF_X, BUF_Y,(uint32_t *)&udp_buffer[1]);
+
+	//Display_Draw_Image_DMA2D(BUF_X*frame_step.x_step, BUF_Y*frame_step.y_step, BUF_X, BUF_Y,(uint32_t *)&udp_buffer[1]);
+
 }
 
 
