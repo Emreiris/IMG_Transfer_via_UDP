@@ -44,5 +44,6 @@ MCU_Side
 - Build project
 - Run
 
+Video : https://www.youtube.com/watch?v=131t2ypqeBg
 NOTE : In order to communicate with MCU, change IP settings from DHCP to static IP in PC's ethernet driver settings.
 
