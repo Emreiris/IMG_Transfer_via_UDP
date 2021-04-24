@@ -2,14 +2,14 @@
 
 This project is designed to transmit 480x272 size images from computer to MCU([STM32F746-Disco](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html)).
 
-Project Structure
-\MCU_Side
- \Modules       "Contains necessary software modules for project."
- \Application   "Application Layer is coded in here."
-\PC_Side
- \UDP_Webcam_Manager\Camera_Handler.cs   "Manages camera functionality."
- \UDP_Webcam_Manager\UDP_Handler.cs      "Manages UDP data transmission functionality."
- \UDP_Webcam_Manager\Form1.cs            "Application layer is coded in here." \s\s
+Project Structure  
+\MCU_Side  
+ \Modules       "Contains necessary software modules for project."  
+ \Application   "Application Layer is coded in here."  
+\PC_Side   
+ \UDP_Webcam_Manager\Camera_Handler.cs   "Manages camera functionality."  
+ \UDP_Webcam_Manager\UDP_Handler.cs      "Manages UDP data transmission functionality."  
+ \UDP_Webcam_Manager\Form1.cs            "Application layer is coded in here." \s\s  
 
 Algorithm for image transmission is as follows                                
 PC_Side                          
