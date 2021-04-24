@@ -25,3 +25,30 @@ D:\Warm up Projects\UI_Apps\UDP_Webcam_Manager\obj\Release\UDP_Webcam_Manager.cs
 D:\Warm up Projects\UI_Apps\UDP_Webcam_Manager\obj\Release\UDP_Webcam_Manager.csproj.CopyComplete
 D:\Warm up Projects\UI_Apps\UDP_Webcam_Manager\obj\Release\UDP_Webcam_Manager.exe
 D:\Warm up Projects\UI_Apps\UDP_Webcam_Manager\obj\Release\UDP_Webcam_Manager.pdb
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\UDP_Webcam_Manager.exe.config
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\UDP_Webcam_Manager.exe
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\UDP_Webcam_Manager.pdb
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\AForge.dll
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\AForge.Video.DirectShow.dll
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\AForge.Video.dll
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\NetVips.dll
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\System.Buffers.dll
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\System.Memory.dll
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\System.Numerics.Vectors.dll
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\AForge.xml
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\AForge.Video.xml
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\AForge.Video.DirectShow.xml
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\NetVips.xml
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\System.Buffers.xml
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\System.Memory.xml
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\System.Numerics.Vectors.xml
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\obj\Release\UDP_Webcam_Manager.csprojAssemblyReference.cache
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\obj\Release\UDP_Webcam_Manager.Form1.resources
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\obj\Release\UDP_Webcam_Manager.Properties.Resources.resources
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\obj\Release\UDP_Webcam_Manager.csproj.GenerateResource.cache
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\obj\Release\UDP_Webcam_Manager.csproj.CoreCompileInputs.cache
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\obj\Release\UDP_Webcam_Manager.csproj.CopyComplete
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\obj\Release\UDP_Webcam_Manager.exe
+D:\Warm up Projects\Embedded Software Projects\ST Projects\STM32F7\IMG_Transfer_via_TCP\IMG_Transfer_via_UDP\PC_Side\UDP_Webcam_Manager\obj\Release\UDP_Webcam_Manager.pdb

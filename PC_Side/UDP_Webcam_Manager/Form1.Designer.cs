@@ -50,9 +50,10 @@ namespace UDP_Webcam_Manager
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Location = new System.Drawing.Point(225, 121);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(477, 304);
+            this.pictureBox2.Size = new System.Drawing.Size(480, 272);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 

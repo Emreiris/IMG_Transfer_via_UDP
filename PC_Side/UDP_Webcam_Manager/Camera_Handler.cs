@@ -52,10 +52,7 @@ namespace UDP_Webcam_Manager
             frame     = (Bitmap)(new Bitmap((Bitmap)eventArgs.Frame.Clone(), size));
         }
 
-        public bool Camera_Running()
-        {
-            return video_capture_device.IsRunning;
-        }
+
         public void Camera_Stop()
         {
             video_capture_device.Stop();

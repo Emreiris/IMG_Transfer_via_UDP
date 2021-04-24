@@ -90,7 +90,7 @@ namespace UDP_Webcam_Manager
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(camera_handler.Camera_Running())
+            if (button_counter % 2 == 1)
             {
                 camera_handler.Camera_Stop();
             }
