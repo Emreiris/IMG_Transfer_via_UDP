@@ -10,8 +10,7 @@
 
 #include <stdint.h>
 
-#define DEV_ADDRESS_READ    ((uint8_t)0x71)
-#define DEV_ADDRESS_WRITE   ((uint8_t)0x70)
+#define DEV_ADDRESS         ((uint8_t)0x71)
 
 #define DEV_TOUCH_NUM       ((uint8_t)0x02)
 #define DEV_TOUCH_X_H       ((uint8_t)0x03)
