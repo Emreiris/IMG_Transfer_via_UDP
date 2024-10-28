@@ -11,39 +11,39 @@ Project Structure
  \UDP_Webcam_Manager\UDP_Handler.cs      "Manages UDP data transmission functionality."  
  \UDP_Webcam_Manager\Form1.cs            "Application layer is coded in here." \s\s  
 
-Algorithm for image transmission is as follows                                
+The algorithm for image transmission is as follows                                
 PC_Side                          
 1- Form Load                                  
 2- Start Camera                                                                                          
-3- Take frame       
+3- Take the frame       
 4- Resize to 480x272     
-5- Write sequence number in first 4 byte in an buffer   
+5- Write sequence number in first 4 bytes in an buffer   
 6- take 16x16 sub-frame from image in position (0+x_step,0+y_step)   
-7- write to same buffer with 4 byte offset.  
+7- write to the same buffer with a 4-byte offset.  
 7- Send buffer via UDP  
 8- Increase sequence number   
-9- increse x_step 16   
-10- Check if sequence number is divided to 30. If divided increase y_step  
+9- increase x_step 16   
+10- Check if the sequence number is divided into 30. If divided increase y_step  
 11- Else go to step 5  
 
 MCU_Side  
 1- Initialize components  
-2- Check if UDP packet is received  
+2- Check if the UDP packet is received  
 3- If received, write to udp_buffer  
-4- Read first 4 byte of udp_buffer ( sequence number is in there )  
-5- Calculate Remainder of sequence number when divided by 30. That is the x position of sub-frame  
-6- Calculate sequence number minus x position divided by 30. That is the y position of sub-frame  
-7- Write udp buffer to displayer driver memory with 4 byte offset  
+4- Read the first 4 bytes of udp_buffer ( sequence number is in there )  
+5- Calculate the Remainder of the sequence number when divided by 30. That is the x position of the sub-frame  
+6- Calculate sequence number minus x position divided by 30. That is the y position of the sub-frame  
+7- Write UDP buffer to displayer driver memory with 4-byte offset  
 8- Go to 2. step  
 
 #How to Run
 - Open STM32CubeIDE and import project
 - Build Project
 - Load to target device 
-- Open Visual Studio Code and import solution
+- Open Visual Studio Code and import the solution
 - Build project
 - Run
 
-Video : https://www.youtube.com/watch?v=131t2ypqeBg   
-NOTE : In order to communicate with MCU, change IP settings from DHCP to static IP in PC's ethernet driver settings.
+You can watch the demo [here](https://youtu.be/131t2ypqeBg)   
+NOTE: To communicate with MCU, change IP settings from DHCP to static IP in the PC's ethernet driver settings.
 
